@@ -31,7 +31,7 @@ class Game {
       head.y + this.snake.size > this.food.position.y
     ) {
       this.snake.grow();
-      this.food.position = this.food.generatePosition();
+      this.food.position = this.food.generatePosition(this.snake.snakeBody);
     }
   }
 }

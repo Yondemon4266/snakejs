@@ -44,6 +44,16 @@ export default class Snake {
       default:
         break;
     }
+    // SI AUX EXTREMITES TELEPORTE
+    this.teleportSnake(head);
+    //
+    if (this.checkCollisionWithSelf(head)) {
+      alert("game over!");
+    }
+    this.snakeBody.unshift(head);
+    this.snakeBody.pop();
+  }
+  teleportSnake(head) {
     // Vérifie si le serpent dépasse les bords du canvas
     if (head.x < 0) {
       // Si la tête est à gauche du canvas, elle réapparaît à droite
@@ -60,9 +70,15 @@ export default class Snake {
       // Si la tête est en bas du canvas, elle réapparaît en haut
       head.y = 0;
     }
-
-    this.snakeBody.unshift(head);
-    this.snakeBody.pop();
+  }
+  checkCollisionWithSelf(head) {
+    // Vérifie si la tête entre en collision avec une autre partie du corps
+    for (let i = 1; i < this.snakeBody.length; i++) {
+      if (head.x === this.snakeBody[i].x && head.y === this.snakeBody[i].y) {
+        return true; // Collision détectée
+      }
+    }
+    return false; // Pas de collision
   }
   grow() {
     const head = { ...this.snakeBody[0] };
