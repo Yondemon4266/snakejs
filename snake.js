@@ -5,7 +5,7 @@ export default class Snake {
     this.snakeBody = [{ x: 50, y: 50 }];
     this.size = size;
     this.direction = "ArrowRight";
-
+    this.directions = ["ArrowRight", "ArrowLeft", "ArrowUp", "ArrowDown"];
     document.addEventListener("keydown", (e) => this.changeDirection(e));
   }
   //   Dessiner le snake sur le canvas
@@ -73,6 +73,7 @@ export default class Snake {
     if (this.direction === "ArrowDown" && e.key === "ArrowUp") return;
     if (this.direction === "ArrowLeft" && e.key === "ArrowRight") return;
     if (this.direction === "ArrowRight" && e.key === "ArrowLeft") return;
+    if (!this.directions.includes(e.key)) return;
     this.direction = e.key;
   }
 }
