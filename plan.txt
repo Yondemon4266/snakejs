@@ -1,0 +1,26 @@
+ Snake game classique :
+
+ 
+ Structure de développement par classes.
+
+
+Architecture imaginée : 
+
+Une class game pour gérer l'état du jeu en global.
+Une class snake pour gérer le serpent et ses actions.
+Une class food pour gérer la nourriture
+Une class wall pour gérer les obstacles (à la fin)
+
+1.Class Game {
+    Etat du jeu : lancé pas lancé.
+    const snake = new Snake()
+    const food = new Food();
+    const walls = [walls].map((w) => new Wall(w));
+}
+
+
+2.Class Snake {}
+3.Class Food {}
+4.Class Wall {}
+
+
