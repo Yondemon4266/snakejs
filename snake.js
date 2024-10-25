@@ -14,7 +14,7 @@ export default class Snake {
     this.snakeBody.forEach((segment) => {
       this.ctx.clearRect(segment.x, segment.y, this.size, this.size);
     });
-    this.ctx.fillStyle = "red";
+    this.ctx.fillStyle = "rgb(81, 201, 91)";
     this.snakeBody.forEach((segment) => {
       this.ctx.fillRect(segment.x, segment.y, this.size, this.size);
     });
@@ -92,4 +92,5 @@ export default class Snake {
     if (!this.directions.includes(e.key)) return;
     this.direction = e.key;
   }
+  eatSound() {}
 }
